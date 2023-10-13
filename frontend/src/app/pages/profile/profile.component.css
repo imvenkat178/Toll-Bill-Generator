@@ -1,0 +1,25 @@
+.colored-section{
+    background-color: #F06292;  
+    color: #fff;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 20px;
+    padding-bottom: 100px;
+}
+
+.big-heading{
+    padding-top: 10%;
+    padding-left: 20%;
+    padding-right: 20%;
+    font-family: "Monsterrat-bold";
+    text-align: center;
+    font-size: 3.5rem;
+    line-height: 1.5;
+}
+
+.title-image{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}

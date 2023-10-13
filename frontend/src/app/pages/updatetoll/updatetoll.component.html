@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <div class="row">
+                <h3 class="text-center"> Update Toll </h3>
+                <hr />
+                <div class="card-body">
+                    <form (ngSubmit)="onSubmit()">
+    
+                        <div class="form-group">
+                            <label> Source </label>
+                            <input type="text" class="form-control" id="source" [(ngModel)]="toll.source"
+                                name="source" readonly>
+                        </div>
+    
+                        <div class="form-group">
+                            <label> Destination </label>
+                            <input type="text" class="form-control" id="destination" [(ngModel)]="toll.destination"
+                                name="destination" readonly>
+                        </div>
+    
+                        <div class="form-group">
+                            <label> Price </label>
+                            <input type="number" class="form-control" id="price" [(ngModel)]="toll.price"
+                                name="price" maxlength="3">
+                        </div>
+                        <br />
+                        <button class="btn btn-success" type="submit">Submit</button>
+    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "default" color = "#fff" type = "ball-spin-clockwise" [fullScreen] = "true">
+        <p style="color: white" > Loading... </p>
+    </ngx-spinner>
+    <app-footer></app-footer>
+    

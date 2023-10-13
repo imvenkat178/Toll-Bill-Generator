@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div class="global-container">
+    <div class="card login-form">
+        <div class="card-body">
+            <h3 class="card-title text-center"> Login or Sign-in </h3> 
+            <div class="card-text">   
+                <form (ngSubmit)="formSubmit()" #f="ngForm">
+                    <div class="form-group"> 
+                        <input type="email" 
+                                id="email" 
+                                class="form-control" 
+                                placeholder="Enter Email Id"
+                                name="email"
+                                [(ngModel)]="user.email"
+                                #email="ngModel"
+                                email
+                                required>
+                        <span class="help-block" *ngIf="!email.valid && email.touched">Please Enter Valid Email</span>
+                    </div>
+                    <div class="form-group"> 
+                        <input type="password" 
+                                id="password" 
+                                class="form-control" 
+                                placeholder="Enter Password"
+                                name="password"
+                                pattern=".{6,}"
+                                title="Six or more characters"
+                                [(ngModel)]="user.password"
+                                #password="ngModel"
+                                required>
+                        <span class="help-block" *ngIf="!password.valid && password.touched">Please Enter Password</span>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Login</button>
+                        <button type="reset" class="btn btn-info ml20">Reset</button>
+                    </div>
+                </form><br>
+            </div>
+                <div class="reglinks" >
+                    New User ? <a routerLink="/user/uregistration">Click Here For Registration</a><br>
+                    New Manager ? <a routerLink="/manager/mregistration">Click Here For Registration</a>
+                </div>
+        </div>
+    </div>
+</div>
+<ngx-spinner bdColor = "rgba(51, 51, 51, 0.8)" size = "default" color = "#fff" type = "ball-spin-clockwise" [fullScreen] = "true">
+    <p style="color: white" > Loading... </p>
+</ngx-spinner>
+
+<app-footer></app-footer>

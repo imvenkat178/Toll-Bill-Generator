@@ -1,0 +1,34 @@
+<div class ="container">
+    <div class = "card" style="padding-bottom: 100px;">
+        <h3 class="text-center">Pending Manager List</h3>
+        <div class = "card-body">
+            <table class="table table-striped">
+                <thead>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date of Birth</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let user of users">
+                        <td> {{ user.firstName}}</td>
+                        <td> {{ user.lastName}}</td>
+                        <td> {{ user.dob}}</td>
+                        <td> {{ user.email}}</td>
+                        <td> {{ user.status}}</td>
+                        <td>
+                            <button type="button" class="btn btn-danger" (click)="approveManager(user)">Approve</button>
+                            <button type="button" class="btn btn-danger ml20" (click)="rejectManager(user.id)">Reject</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "default" color = "#fff" type = "ball-spin-clockwise" [fullScreen] = "true">
+    <p style="color: white" > Loading... </p>
+</ngx-spinner>
+<app-footer></app-footer>

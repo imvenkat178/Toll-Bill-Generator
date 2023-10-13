@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="card mt-5" style="align-items: center;">
+      <h1>Add Toll</h1>
+    </div>
+  
+    <div class="card mt-5" style="padding: 20px;">
+      <form #f="ngForm" (ngSubmit)="formSubmit()">
+        <div class="form-group">
+          <label for="source">Source</label>
+          <input type="text" 
+            #source="ngModel"
+            [(ngModel)]="toll.source" 
+            name="source" 
+            id="source" 
+            class="form-control" 
+            placeholder="Enter Source Toll"
+            required>
+            <span class="help-block" *ngIf="!source.valid && source.touched">Please Enter Source</span>
+        </div>
+        <div class="form-group">
+          <label for="destination">Destination</label>
+          <input type="text" 
+            #destination="ngModel" 
+            [(ngModel)]="toll.destination" 
+            name="destination" 
+            id="destination" 
+            class="form-control"
+            placeholder="Enter Destination Toll"
+            required>
+            <span class="help-block" *ngIf="!destination.valid && destination.touched">Please Enter Destination</span>
+        </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input type="number" 
+            #price="ngModel"
+            [(ngModel)]="toll.price" 
+            name="price" 
+            id="price" 
+            class="form-control"
+            maxlength="3"
+            placeholder="Enter Price of Toll"
+            required>
+            <span class="help-block" *ngIf="!price.valid && price.touched">Please Enter Price</span>
+        </div>
+        <div class="form-group">
+          <button type="submit" value="Submit" class="btn btn-primary mb20" [disabled]="!f.valid">Submit</button>
+          <button type="reset" class="btn btn-info ml20 mb20">Reset</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="mt-5" style="padding-bottom: 100px;">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Source</th>
+              <th>Destination</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody class="tbody">
+            <tr *ngFor="let toll of tollDetails">
+              <td>{{toll.source}}</td>
+              <td>{{toll.destination}}</td>
+              <td>{{toll.price}}</td>
+              <td>{{toll.status}}</td>
+              <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                  (click)="editToll(toll.id)">Edit</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "default" color = "#fff" type = "ball-spin-clockwise" [fullScreen] = "true">
+      <p style="color: white" > Loading... </p>
+  </ngx-spinner>
+    <app-footer></app-footer>

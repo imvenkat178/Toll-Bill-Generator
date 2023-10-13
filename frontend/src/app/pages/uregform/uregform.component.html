@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="row" style="padding-bottom: 100px;">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <h3 class="text-center">User Registration</h3>
+            <form (ngSubmit)="formSubmit()" #f="ngForm">
+              <div class="form-group">
+                <label for="firstName">First Name<span class="requiredStar">*</span></label>
+                <input type="text" 
+                  id="firstName" 
+                  class="form-control" 
+                  placeholder="Enter First Name"
+                  name="firstName"
+                  [(ngModel)]="user.firstName"
+                  #firstName="ngModel"
+                  required>
+                  <span class="help-block text-danger" *ngIf="!firstName.valid && firstName.touched">Please Enter First Name</span>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name<span class="requiredStar">*</span></label>
+                <input type="text" 
+                  id="lastName" 
+                  class="form-control" 
+                  placeholder="Enter Last Name"
+                  name="lastName"
+                  [(ngModel)]="user.lastName"
+                  #lastName="ngModel"
+                  required>
+                  <span class="help-block text-danger" *ngIf="!lastName.valid && lastName.touched">Please Enter Last Name</span>
+              </div>
+              <div class="form-group">
+                <label for="contact">Select Gender<span class="requiredStar">*</span></label>
+                <p>
+                  <input type="radio" value="Male" name="gender" [(ngModel)]="user.gender" #gender="ngModel" required> Male
+                  <input type="radio" value="Female" name="gender" [(ngModel)]="user.gender" #gender="ngModel" required> Female
+               </p>
+               <span class="help-block" *ngIf="!gender.touched">Please Choose Gender</span>
+              </div>
+              <div class="form-group">
+                <label for="dob">Date of Birth<span class="requiredStar">*</span></label>
+                <input type="date" 
+                  id="dob" 
+                  class="form-control" 
+                  placeholder="Enter Contact Number"
+                  name="dob"
+                  [(ngModel)]="user.dob"
+                  #dob="ngModel"
+                  [max]="getToday()"
+                  required>
+                  <span class="help-block text-danger" *ngIf="!dob.valid && dob.touched">Please Enter Date</span>
+              </div>
+              <div class="form-group">
+                <label for="contact">Contact<span class="requiredStar">*</span></label>
+                <input type="tel" 
+                  id="contact" 
+                  class="form-control" 
+                  placeholder="Enter Contact Number"
+                  name="contact"
+                  [(ngModel)]="user.contact"
+                  pattern="[1-9]{1}[0-9]{9}"
+                  maxlength="10"
+                  #contact="ngModel"
+                  required>
+                  <span class="help-block text-danger" *ngIf="!contact.valid && contact.touched">Please Enter Valid Contact Number</span>
+              </div>
+                <div class="form-group">
+                    <label for="email">Email Id<span class="requiredStar">*</span></label>
+                    <input type="email" 
+                      id="email" 
+                      class="form-control" 
+                      placeholder="Enter Email Id"
+                      name="email"
+                      [(ngModel)]="user.email"
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                      #email="ngModel"
+                      email
+                      required>
+                      <span class="help-block text-danger" *ngIf="!email.valid && email.touched">Please Enter Valid Email</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="username">Password<span class="requiredStar">*</span></label>
+                    <input type="password" 
+                      id="password" 
+                      class="form-control" 
+                      placeholder="Enter Password"
+                      name="password"
+                      pattern="^(?=.*[@$!%*?&]).{6,}$"
+                      title="Six or more characters with atleast 1 special character"
+                      [(ngModel)]="user.password"
+                      #password="ngModel"
+                      required>
+                      <span class="help-block" *ngIf="(!password.valid && password.touched)||(password.dirty)">
+                        <span class="text-danger" *ngIf="password.errors?.['required']">Password is required</span>
+			                  <span class="text-danger" *ngIf="password.errors?.['pattern']">Password is invalid</span>
+                      </span>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary mb20" [disabled]="!f.valid">Submit</button>
+                    <button type="reset" class="btn btn-info ml20 mb20">Reset</button>
+                  </div>
+                
+              </form>
+        </div>
+    </div>
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "default" color = "#fff" type = "ball-spin-clockwise" [fullScreen] = "true">
+  <p style="color: white" > Loading... </p>
+</ngx-spinner>
+<app-footer></app-footer>

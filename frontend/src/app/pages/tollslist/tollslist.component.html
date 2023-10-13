@@ -1,0 +1,33 @@
+<div class ="container">
+    <div class = "card" style="padding-bottom: 100px;">
+        <h3 class="text-center">Toll List</h3>
+        <div class = "card-body">
+            <table class="table table-striped">
+                <thead>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let toll of tolls">
+                        <td> {{ toll.source}}</td>
+                        <td> {{ toll.destination}}</td>
+                        <td> {{ toll.price}}</td>
+                        <td> {{ toll.status}}</td>
+                        <td >
+                            <button type="button" class="btn btn-danger" (click)="approveTollDetail(toll)">Approve</button>
+                            <button type="button" class="btn btn-danger ml20" (click)="rejectToll(toll.id)">Reject</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "default" color = "#fff" type = "ball-spin-clockwise" [fullScreen] = "true">
+    <p style="color: white" > Loading... </p>
+</ngx-spinner>
+<app-footer></app-footer>
+

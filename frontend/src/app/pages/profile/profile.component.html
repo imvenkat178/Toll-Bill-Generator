@@ -1,0 +1,80 @@
+<section class="colored-section" id="title">
+    <h1 style="text-align: center; margin-bottom: 20px;">Profile</h1>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <h4 style="text-align: left; margin-left: 50px;">
+                        <table>
+                            <tr>
+                                <td >First Name</td>
+                            </tr>
+                    
+                            <tr>
+                                <td >Last Name</td>
+                            </tr>
+                            <tr>
+                                <td >Email</td>
+                            </tr>
+                            <tr>
+                                <td >Gender</td>
+                            </tr>
+                            <tr>
+                                <td >Date of Birth</td>
+                            </tr>
+                            <tr>
+                                <td >Contact</td>
+                            </tr>
+                            <tr>
+                                <td >Role</td>
+                            </tr>
+                        </table>
+                    </h4>
+                    </div>
+                    <div class="col" style="padding-right: 10px; text-align: right;">
+                        <h4 style="text-align: right;">
+                        <table>
+                            <tr>
+                                <td>{{this.myprofileinfo.firstName}}</td>
+                            </tr>
+                    
+                            <tr>
+                                <td>{{this.myprofileinfo.lastName}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{this.myprofileinfo.email}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{this.myprofileinfo.gender}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{this.myprofileinfo.dob}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{this.myprofileinfo.contact}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{this.myprofileinfo.usertype}}</td>
+                            </tr>
+                        </table>
+                    </h4>
+                    </div>
+                  </div>
+            </div>
+            <h4 style="padding-left: 20%;">
+                
+            </h4>
+            <h4 style="padding-left: 20%;">
+                
+            </h4>
+        </div>
+        <div class="col-md-6">
+          <img *ngIf="this.myprofileinfo.gender=='Female'" class="title-image" src="../../../assets/femaleimg.png" alt="female-person">
+          <img *ngIf="this.myprofileinfo.gender=='Male'" class="title-image" src="../../../assets/maleimg.jpg" alt="male-person">
+        </div>
+      </div>
+    </div>
+    </section>
+<app-footer></app-footer>
